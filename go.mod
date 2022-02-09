@@ -1,3 +1,3 @@
-module github.com/DATA-DOG/go-txdb
+module github.com/asfreng/go-txdb
 
 go 1.12
