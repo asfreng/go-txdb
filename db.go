@@ -206,7 +206,8 @@ func (c *conn) Begin() (driver.Tx, error) {
 	}
 
 	c.saves++
-	id := fmt.Sprintf("tx_%d", c.saves)
+	// id := fmt.Sprintf("tx_%d", c.saves)
+	id := fmt.Sprintf("tx_test")
 	_, err = connTx.Exec(c.savePoint.Create(id))
 	if err != nil {
 		return nil, err
