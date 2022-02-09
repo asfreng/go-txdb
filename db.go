@@ -187,8 +187,10 @@ func (c *conn) Close() (err error) {
 	return
 }
 
-func Clean(c *conn) {
-	if c.tx != nil {
+func Clean(drvConn driver.Conn) {
+	c, ok := (drvConn).(*conn)
+
+	if ok && c.tx != nil {
 		c.tx.Rollback()
 	}
 	return
