@@ -187,6 +187,13 @@ func (c *conn) Close() (err error) {
 	return
 }
 
+func (c *conn) Clean() (err error) {
+	if c.tx != nil {
+		c.tx.Rollback()
+	}
+	return
+}
+
 type tx struct {
 	id   string
 	conn *conn
