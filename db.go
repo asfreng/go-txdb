@@ -187,7 +187,7 @@ func (c *conn) Close() (err error) {
 	return
 }
 
-func (c *conn) Clean() (err error) {
+func Clean(c *conn) (err error) {
 	if c.tx != nil {
 		c.tx.Rollback()
 	}
